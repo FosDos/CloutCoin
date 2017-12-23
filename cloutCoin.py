@@ -14,13 +14,10 @@ def get_data():
   start = start_date.get()
   end = stop_date.get()
   try:
-    datetime.datetime.strptime(start, '%Y-%m-%d')
-
-    datetime.datetime.strptime(end, '%Y-%m-%d')
-  except ValueError:
+    string=coinTrends.getPayload(term,start,end)
+  except:
     tkMessageBox.showinfo("Error","Please enter dates in the YYYY-MM-DD format")
     return
-  string=coinTrends.getPayload(term,start,end)
   f = open('tempData.txt','w')
   f.write(string)
   time.sleep(1)
@@ -53,16 +50,14 @@ def get_big_data():
   toReturn = ""
   print "Starting loop..."
   for line in lines:
+    start = start_date.get()
+    end = stop_date.get()
     try:
-      start = start_date.get()
-      end = stop_date.get()
-      datetime.datetime.strptime(start, '%Y-%m-%d')
-      datetime.datetime.strptime(end, '%Y-%m-%d')
-    except ValueError:
+      string = coinTrends.getPayload(line,start,end)
+    except:
       tkMessageBox.showinfo("Error","Please enter dates in the YYYY-MM-DD format")
       return
-    
-    output.write(coinTrends.getPayload(line,start,end))
+    output.write(string)
     output.write("\n")
   source.close()
   output.close()

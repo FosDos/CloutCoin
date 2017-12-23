@@ -80,17 +80,3 @@ def analyze12MonthData(data):
   toReturn = toReturn + "In the past week, trend data has a " + str(lastWeekPercentIncrease) + "% increase\n"
   toReturn = toReturn + "From 2 weeks ago to last week, trend data has a " + str(twoWeeksPercentIncrease) + "% increase\n"
   return toReturn
-
-  
-    
-    
-  
-    
-test = getPayload("buy qtum", "2017-12-10", "2017-12-16")
-
-print test
-test = parsePayload(test)
-
-print test
-rip = analyze12MonthData(test)
-print rip

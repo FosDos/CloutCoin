@@ -1,5 +1,3 @@
-import Tkinter
-from ScrolledText import *
 import sys
 
 
@@ -11,10 +9,3 @@ def setup(filename):
   for line in lines:
     toReturn = toReturn + line
   return toReturn
-
-text = setup('tempData.txt')
-root = Tkinter.Tk(className=" Another way to create a scrollable text area")
-textPad = ScrolledText(root, width=50, height =50)
-textPad.insert('1.0', text)
-textPad.pack()
-root.mainloop()
